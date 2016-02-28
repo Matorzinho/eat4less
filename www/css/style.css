@@ -1,0 +1,30 @@
+.rating{
+	clear: left;
+}
+.rating li{
+	float: left
+}
+.img{
+	background: black;
+	width: 65px;
+	height: 65px;
+}
+.restaurant-name{
+	font-weight: 600;
+	float:left;
+	margin-bottom: 0!important;
+}
+.promo-content{
+	margin-left: 10px;
+}
+.promo-desc{
+	clear: left;
+}
+.promo-price::before{
+	content: '€';
+}
+.restaurant-big-name{
+	margin-bottom: 0;
+	text-align: center;
+	color: #656565
+}

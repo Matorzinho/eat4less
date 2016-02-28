@@ -1,0 +1,19 @@
+<ion-view view-title="Eat 4 Less" class="logo-header">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}" class="promo-row">
+      	<div class="row">
+	      	<div class="col">
+	      		<div class="img"></div>
+	      	</div>
+	      	<div class="col-80 promo-content">
+		        <p class="restaurant-name" style="">{{playlist.title}}</p>
+		        <p class="promo-desc">Pizza, Chips, Can of Coke</p>
+		        <p><b>Valid until:</b> 20/03/2016</p>
+		        <p class="promo-price">5</p>
+	      	</div>
+      	</div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
