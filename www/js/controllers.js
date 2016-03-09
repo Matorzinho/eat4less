@@ -11,22 +11,41 @@ angular.module('starter.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
+  // Form data for the signup modal
+  $scope.signupData = {};
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.loginModal = modal;
+  });
+
+  // Create the signup modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/signup.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.signupModal = modal;
   });
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
-    $scope.modal.hide();
+    $scope.loginModal.hide();
+  };
+
+  // Triggered in the signup modal to close it
+  $scope.closeSignup = function() {
+    $scope.signupModal.hide();
   };
 
   // Open the login modal
   $scope.login = function() {
-    $scope.modal.show();
+    $scope.loginModal.show();
+  };
+
+  // Open the signup modal
+  $scope.signup = function() {
+    $scope.signupModal.show();
   };
 
   // Perform the login action when the user submits the login form
@@ -39,20 +58,33 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+  // Perform the login action when the user submits the login form
+  $scope.doSignup = function() {
+    console.log('Doing signup', $scope.signupData);
+    $timeout(function() {
+      $scope.closeSignup();
+    }, 1000);
+  };
+
+  $scope.displayCustomer = true;
+  $scope.displayRestaurant = false;
+  
+  $scope.showCustomer = function(){
+    $scope.displayCustomer = true;
+    $scope.displayRestaurant = false;
+  };
+
+  $scope.showRestaurant = function(){
+    $scope.displayRestaurant = true;
+    $scope.displayCustomer = false;
+  };
+
+
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
+  
 .controller('HomeCtrl', function($scope) {
-  $scope.playlists = [
+  $scope.restaurants = [
     { title: 'Two for one', id: 1 },
     { title: 'All day special', id: 2 },
     { title: 'The big meal', id: 3 },
@@ -63,7 +95,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('RestaurantsCtrl', function($scope) {
-  $scope.playlists = [
+  $scope.restaurants = [
     { title: 'Milano', id: 1 },
     { title: 'Star Pizza', id: 2 },
     { title: 'Mc Donalds', id: 3 },
@@ -73,5 +105,4 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+// .controller('PlaylistCtrl', function($scope, $stateParams) {});
